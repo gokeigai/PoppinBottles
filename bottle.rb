@@ -5,11 +5,6 @@
 @empty_bottle_bonus = 0
 @bottlecap_bonus = 0
 
-#TODO recursive logic 
-#  cap and bottle amount need to save and record
-# if used subtract
-#add to total amount
-
 def get_bottle_reward_amount(bottle_amount)
   @empty_bottles = bottle_amount % 2
   current_bonus = bottle_amount/2
@@ -46,8 +41,11 @@ def calculate_final_bottle_amount(bottles)
   calculate_final_bottle_amount(reward)
 end
 
-# $6 = 3 soda 4 free soda
-first_bottles_amount = get_bottle_buy_amount(6)
+# Test Case: $6 = 3 soda 4 free soda
+puts "How much would you like to spend on bottles?"
+dollars = gets.chomp.to_i
+
+first_bottles_amount = get_bottle_buy_amount(dollars)
 puts "Bottles Bought #{first_bottles_amount}"
 total_reward = calculate_final_bottle_amount(first_bottles_amount)
 puts "Free Bottles Received #{total_reward}"
